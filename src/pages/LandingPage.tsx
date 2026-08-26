@@ -1,5 +1,15 @@
 import React from "react";
-import { Activity, ArrowRight, ClipboardCheck, Flame, ShieldCheck, Wrench } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  ClipboardCheck,
+  Flame,
+  ShieldCheck,
+  Wrench,
+  ShieldAlert,
+  Layers,
+  CheckSquare,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { PublicNavbar } from "../components/layout/PublicNavbar";
 import { useAuth } from "../auth/useAuth";
@@ -124,6 +134,150 @@ export const LandingPage: React.FC = () => {
           </div>
         </section>
 
+        <section
+          className="landing-section landing-monitoring"
+          id="monitoring"
+          aria-labelledby="monitoring-title"
+        >
+          <div className="landing-container">
+            <div className="section-intro">
+              <p className="section-kicker">Status & Compliance</p>
+              <h2 id="monitoring-title">Real-time status monitoring and compliance log.</h2>
+            </div>
+            <div className="monitoring-grid">
+              <div className="monitoring-card">
+                <div className="monitoring-icon-wrapper">
+                  <Activity size={24} aria-hidden="true" />
+                </div>
+                <h3>Active Operations</h3>
+                <p>
+                  Track incident metrics, response times, and dispatched equipment immediately on a
+                  unified dashboard.
+                </p>
+              </div>
+              <div className="monitoring-card">
+                <div className="monitoring-icon-wrapper">
+                  <CheckSquare size={24} aria-hidden="true" />
+                </div>
+                <h3>Compliance & Inspections</h3>
+                <p>
+                  Maintain safety standard compliance by logging equipment next-inspection dates and
+                  maintenance checks.
+                </p>
+              </div>
+              <div className="monitoring-card">
+                <div className="monitoring-icon-wrapper">
+                  <ShieldAlert size={24} aria-hidden="true" />
+                </div>
+                <h3>Alert Management</h3>
+                <p>
+                  Instantly flag safety issues, dispatch response units, and coordinate
+                  communications in high-stress situations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="landing-section landing-how-it-works"
+          id="how-it-works"
+          aria-labelledby="how-it-works-title"
+        >
+          <div className="landing-container">
+            <div className="section-intro text-center">
+              <p className="section-kicker">Operational Flow</p>
+              <h2 id="how-it-works-title">Simplifying field response coordination.</h2>
+            </div>
+            <div className="steps-flow">
+              <div className="step-item">
+                <div className="step-number">01</div>
+                <div className="step-content">
+                  <h3>Secure Sign In</h3>
+                  <p>
+                    Personnel log into their secure account to access localized command workspaces.
+                  </p>
+                </div>
+              </div>
+              <div className="step-item">
+                <div className="step-number">02</div>
+                <div className="step-content">
+                  <h3>Resource Profiling</h3>
+                  <p>
+                    Define assets like fire engines, ladder systems, and log inspection schedules or
+                    service notes.
+                  </p>
+                </div>
+              </div>
+              <div className="step-item">
+                <div className="step-number">03</div>
+                <div className="step-content">
+                  <h3>Dispatch & Tasks</h3>
+                  <p>
+                    Assign tasks to active field crews, trace live activity timers, and send
+                    critical messages.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="landing-section landing-benefits"
+          id="benefits"
+          aria-labelledby="benefits-title"
+        >
+          <div className="landing-container benefits-grid">
+            <div className="benefits-sidebar">
+              <p className="section-kicker">Key Benefits</p>
+              <h2 id="benefits-title">Why enterprise stations run on Fire System.</h2>
+              <p className="benefits-subtitle">
+                A purpose-built solution that keeps crews safe, assets compliant, and response
+                operations reliable.
+              </p>
+            </div>
+            <div className="benefits-list">
+              <div className="benefit-card">
+                <div className="benefit-icon-wrapper">
+                  <Layers size={20} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>Unified Operational Hub</h3>
+                  <p>
+                    No more scattered logs. Command field operations, chats, logs, and inspections
+                    in one secure web portal.
+                  </p>
+                </div>
+              </div>
+              <div className="benefit-card">
+                <div className="benefit-icon-wrapper">
+                  <Wrench size={20} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>Direct Task Routing</h3>
+                  <p>
+                    Create detailed work orders for maintenance and inspection duties, linking
+                    specific crews to vehicles instantly.
+                  </p>
+                </div>
+              </div>
+              <div className="benefit-card">
+                <div className="benefit-icon-wrapper">
+                  <ShieldCheck size={20} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>UAT-Stable Audits</h3>
+                  <p>
+                    Track history logs and detailed inspection details to meet strict safety
+                    regulations and compliance guidelines.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="landing-section safety-section" aria-labelledby="safety-title">
           <div className="landing-container safety-content">
             <ShieldCheck size={34} aria-hidden="true" />
@@ -166,6 +320,9 @@ export const LandingPage: React.FC = () => {
           <div className="footer-links">
             <a href="#features">Features</a>
             <a href="#overview">Overview</a>
+            <a href="#monitoring">Monitoring</a>
+            <a href="#how-it-works">Workflow</a>
+            <a href="#benefits">Benefits</a>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
           </div>

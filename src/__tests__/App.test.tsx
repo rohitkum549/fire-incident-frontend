@@ -34,4 +34,23 @@ describe("App Integration", () => {
 
     expect(screen.getByRole("heading", { name: "Welcome back" })).toBeInTheDocument();
   });
+
+  it("redirects authenticated visitors away from login and register", () => {
+    window.localStorage.setItem(
+      "fire-system-session",
+      JSON.stringify({ id: "test-user", name: "Test User", email: "test@example.com" })
+    );
+    window.history.pushState({}, "", "/login");
+
+    render(
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
+    );
+
+    expect(screen.queryByRole("heading", { name: "Welcome back" })).not.toBeInTheDocument();
+    window.localStorage.removeItem("fire-system-session");
+  });
 });
