@@ -1,14 +1,33 @@
 /* Global stylesheet: variables and base resets */
-:root{
-  --bg:#0b1220;
-  --panel:#0f1720;
-  --muted:#94a3b8;
-  --accent:#dc2626;
-  --surface:#111827;
-  --text:#f8fafc;
+:root {
+  --bg: #0b1220;
+  --panel: #0f1720;
+  --muted: #94a3b8;
+  --accent: #dc2626;
+  --surface: #111827;
+  --text: #f8fafc;
 }
-*{box-sizing:border-box}
-html,body,#root{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,sans-serif}
-a{color:inherit}
-button{font:inherit}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+}
+a {
+  color: inherit;
+}
+button {
+  font: inherit;
+}

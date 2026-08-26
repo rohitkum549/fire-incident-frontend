@@ -7,15 +7,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependencies
+node_modules/
 
-# Editor directories and files
+# Production build output
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Environment files
+.env.local
+.env.*.local
+!.env.example
+
+# Test coverage
+coverage/
+
+# Editor & System directories
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
