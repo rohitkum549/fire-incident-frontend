@@ -1,4 +1,16 @@
 /* Assets page styles */
-.assets-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.asset-card{background:var(--surface);padding:12px;border-radius:12px;border:1px solid #1e293b}
-.asset-status{font-weight:700;color:var(--accent)}
+.assets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.asset-card {
+  background: var(--surface);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+}
+.asset-status {
+  font-weight: 700;
+  color: var(--accent);
+}

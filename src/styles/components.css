@@ -1,4 +1,26 @@
 /* Shared component styles */
-.btn{padding:8px 12px;border-radius:10px;border:1px solid #253046;background:#0f1720;color:var(--text)}
-.badge{display:inline-block;padding:6px 10px;border-radius:9999px;background:rgba(220,38,38,0.12);color:var(--accent)}
-.bottom-nav{position:fixed;left:16px;right:16px;bottom:16px;background:var(--panel);padding:10px;border-radius:14px;display:flex;justify-content:space-around}
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #253046;
+  background: #0f1720;
+  color: var(--text);
+}
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: rgba(220, 38, 38, 0.12);
+  color: var(--accent);
+}
+.bottom-nav {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  background: var(--panel);
+  padding: 10px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-around;
+}
