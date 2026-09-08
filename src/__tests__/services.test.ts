@@ -98,6 +98,7 @@ describe("Fire Management System - Modular Services E2E Suite", () => {
           json: async () => ({
             access_token: "test-jwt-token-123",
             username: "admin_alice",
+            email: "alice@example.com",
             roles: ["ROLE_ADMIN"],
           }),
         } as Response);
@@ -122,6 +123,7 @@ describe("Fire Management System - Modular Services E2E Suite", () => {
         json: async () => ({
           access_token: "test-jwt-token-123",
           username: "admin_alice",
+          email: "alice@example.com",
           roles: ["ROLE_ADMIN"],
         }),
       } as Response);
