@@ -23,10 +23,15 @@ export const Login: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
+    if (!username.trim() || !password.trim()) {
+      setError("Enter both your username or email and password.");
+      return;
+    }
+
     setError(null);
     setIsSubmitting(true);
     try {
-      await login({ username, password });
+      await login({ username: username.trim(), password });
       navigate(from, { replace: true });
     } catch (submissionError) {
       setError(

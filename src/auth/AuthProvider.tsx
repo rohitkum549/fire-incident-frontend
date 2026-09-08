@@ -17,8 +17,8 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
       async register(values: RegistrationValues): Promise<void> {
         setUser(await authService.register(values));
       },
-      logout(): void {
-        authService.logout();
+      async logout(): Promise<void> {
+        await authService.logout();
         setUser(null);
       },
     }),

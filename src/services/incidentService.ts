@@ -1,4 +1,12 @@
-import { Asset, WorkOrder, DashboardMetric, ChatMessage } from "../types";
+import {
+  Asset,
+  WorkOrder,
+  DashboardMetric,
+  ChatMessage,
+  Incident,
+  EscalateComplaintPayload,
+  UpdateIncidentStatusPayload,
+} from "../types";
 import { fetchApi } from "../api/client";
 
 const mockMetrics: DashboardMetric[] = [
@@ -73,15 +81,59 @@ const mockChatMessages: ChatMessage[] = [
 ];
 
 export const incidentService = {
+  /**
+   * Escalate Complaint to Incident
+   * Endpoint: POST /incidents
+   */
+  async escalateComplaint(payload: EscalateComplaintPayload): Promise<Incident> {
+    return await fetchApi<Incident>("/incidents", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
+  },
+
+  /**
+   * Transition Incident Status
+   * Endpoint: PATCH /incidents/:id/status
+   */
+  async updateIncidentStatus(
+    incidentId: string,
+    payload: UpdateIncidentStatusPayload
+  ): Promise<Incident> {
+    return await fetchApi<Incident>(`/incidents/${incidentId}/status`, {
+      method: "PATCH",
+      body: JSON.stringify(payload),
+    });
+  },
+
+  /**
+   * Get All Incidents
+   * Endpoint: GET /incidents
+   */
+  async getIncidents(): Promise<Incident[]> {
+    try {
+      return await fetchApi<Incident[]>("/incidents");
+    } catch {
+      return [];
+    }
+  },
+
+  /**
+   * Get Dashboard Metrics
+   * Endpoint: GET /metrics
+   */
   async getDashboardMetrics(): Promise<DashboardMetric[]> {
     try {
       return await fetchApi<DashboardMetric[]>("/metrics");
     } catch {
-      // Fallback mock data for local UAT execution when backend server is offline
       return mockMetrics;
     }
   },
 
+  /**
+   * Get Assets
+   * Endpoint: GET /assets
+   */
   async getAssets(): Promise<Asset[]> {
     try {
       return await fetchApi<Asset[]>("/assets");
@@ -90,6 +142,10 @@ export const incidentService = {
     }
   },
 
+  /**
+   * Get Asset by ID
+   * Endpoint: GET /assets/:id
+   */
   async getAssetById(id: number): Promise<Asset | null> {
     try {
       return await fetchApi<Asset>(`/assets/${id}`);
@@ -98,6 +154,10 @@ export const incidentService = {
     }
   },
 
+  /**
+   * Get Work Orders
+   * Endpoint: GET /work-orders
+   */
   async getWorkOrders(): Promise<WorkOrder[]> {
     try {
       return await fetchApi<WorkOrder[]>("/work-orders");
@@ -106,6 +166,10 @@ export const incidentService = {
     }
   },
 
+  /**
+   * Get Work Order by ID
+   * Endpoint: GET /work-orders/:id
+   */
   async getWorkOrderById(id: number): Promise<WorkOrder | null> {
     try {
       return await fetchApi<WorkOrder>(`/work-orders/${id}`);
@@ -114,6 +178,10 @@ export const incidentService = {
     }
   },
 
+  /**
+   * Get Chat Messages
+   * Endpoint: GET /messages
+   */
   async getChatMessages(): Promise<ChatMessage[]> {
     try {
       return await fetchApi<ChatMessage[]>("/messages");

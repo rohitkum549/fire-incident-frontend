@@ -11,11 +11,16 @@ export class ApiError extends Error {
 }
 
 export async function fetchApi<T>(endpoint: string, options?: RequestInit): Promise<T> {
-  const url = `${envConfig.apiBaseUrl}${endpoint.startsWith("/") ? endpoint : `/${endpoint}`}`;
+  const baseUrl = envConfig.apiBaseUrl.replace(/\/+$/, "");
+  const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
+  const url = `${baseUrl}${cleanEndpoint}`;
 
-  const headers: HeadersInit = {
+  const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
+
+  const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    ...(options?.headers || {}),
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...((options?.headers as Record<string, string>) || {}),
   };
 
   try {

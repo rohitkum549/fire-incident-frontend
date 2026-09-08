@@ -1311,3 +1311,414 @@ button {
   line-height: 1.6;
   margin: 0;
 }
+
+/* User Badge & Profile Styling */
+.header-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header-user-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.header-user-badge:hover {
+  background: rgba(255, 90, 77, 0.12);
+  border-color: rgba(255, 90, 77, 0.3);
+}
+
+.user-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5a4d 0%, #ff8a6a 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(255, 90, 77, 0.25);
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-display-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.user-role-tag {
+  font-size: 0.72rem;
+  color: #ff9d93;
+  letter-spacing: 0.04em;
+}
+
+.sidebar-user-block {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-user-info {
+  padding: 0 4px 8px;
+}
+
+.sidebar-user-name {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-email {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-header-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.profile-avatar-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff5a4d 0%, #ff8a6a 100%);
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(255, 90, 77, 0.3);
+}
+
+.profile-grid-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.profile-detail-card {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.profile-detail-card.full-width {
+  grid-column: span 2;
+}
+
+.detail-value {
+  margin: 6px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.token-text {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.active-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 90, 77, 0.15);
+  border-radius: 999px;
+  color: #ff715e;
+  font-weight: 700;
+}
+
+/* Role Selector Grid & Staff Panel */
+.register-extended-card {
+  width: min(640px, 100%) !important;
+}
+
+.role-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .role-selector-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.role-option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.role-option-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.role-option-card.active {
+  background: rgba(255, 90, 77, 0.14);
+  border-color: #ff5a4d;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 90, 77, 0.2);
+}
+
+.role-option-card .role-icon {
+  color: #ff715e;
+}
+
+.role-text strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.role-text small {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
+  display: block;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.employee-fields-panel {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 90, 77, 0.06);
+  border: 1px solid rgba(255, 90, 77, 0.2);
+  margin-bottom: 12px;
+}
+
+.panel-badge-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ff715e;
+  margin-bottom: 14px;
+}
+
+.custom-select-input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0f1724;
+  color: #e6edf7;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.92rem;
+}
+
+.custom-select-input option {
+  background: #0f1724;
+  color: #e6edf7;
+}
+
+/* Dashboard Action Success Banner & Role Panels */
+.action-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(95, 213, 180, 0.16);
+  border: 1px solid rgba(95, 213, 180, 0.35);
+  border-radius: 16px;
+  color: #5fd5b4;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.role-dashboard-panel {
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(17, 27, 41, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 22px;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.panel-header p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.panel-icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.admin-icon {
+  background: rgba(255, 90, 77, 0.15);
+  color: #ff5a4d;
+}
+
+.ff-icon {
+  background: rgba(255, 177, 97, 0.15);
+  color: #ffb161;
+}
+
+.citizen-icon {
+  background: rgba(95, 213, 180, 0.15);
+  color: #5fd5b4;
+}
+
+.panel-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .panel-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-escalate-form,
+.shift-card-block,
+.incident-transition-block,
+.citizen-complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+}
+
+.admin-escalate-form h4,
+.shift-card-block h4,
+.incident-transition-block h4,
+.citizen-complaint-form h4,
+.admin-status-overview h4,
+.citizen-complaints-list h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: #ffffff;
+}
+
+.shift-status-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.transition-buttons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.incident-list-scroll,
+.complaint-scroll-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.incident-status-card,
+.complaint-card-item {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.inc-header,
+.cmp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.cmp-desc {
+  margin: 6px 0;
+  font-size: 0.92rem;
+  color: #e6edf7;
+}
+
+.incident-status-card small,
+.complaint-card-item small {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
