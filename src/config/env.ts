@@ -13,7 +13,7 @@ const getEnvVariable = (key: keyof ImportMetaEnv, defaultValue: string): string 
 };
 
 export const envConfig: EnvironmentConfig = {
-  apiBaseUrl: getEnvVariable("VITE_API_BASE_URL", "http://localhost:8080/api"),
+  apiBaseUrl: getEnvVariable("VITE_API_BASE_URL", "http://localhost:8080/api/v1"),
   appEnv: getEnvVariable("VITE_APP_ENV", "development") as EnvironmentConfig["appEnv"],
   appName: getEnvVariable("VITE_APP_NAME", "Fire Incident Management System"),
 };

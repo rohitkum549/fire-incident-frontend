@@ -7,6 +7,9 @@ const sectionLinks = [
   { label: "Home", target: "top" },
   { label: "Features", target: "features" },
   { label: "Overview", target: "overview" },
+  { label: "Monitoring", target: "monitoring" },
+  { label: "Workflow", target: "how-it-works" },
+  { label: "Benefits", target: "benefits" },
 ];
 
 export const PublicNavbar: React.FC = () => {

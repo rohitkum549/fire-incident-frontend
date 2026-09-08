@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
 ];
 
 export const Sidebar: React.FC = () => {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = (): void => {
@@ -60,10 +60,24 @@ export const Sidebar: React.FC = () => {
           </NavLink>
         ))}
       </nav>
-      <button type="button" className="nav-link sidebar-logout" onClick={handleLogout}>
-        <LogOut className="nav-icon" />
-        <span>Logout</span>
-      </button>
+
+      {user ? (
+        <div className="sidebar-user-block">
+          <div className="sidebar-user-info">
+            <p className="sidebar-user-name">{user.name || user.username}</p>
+            <p className="sidebar-user-email">{user.email}</p>
+          </div>
+          <button type="button" className="nav-link sidebar-logout" onClick={handleLogout}>
+            <LogOut className="nav-icon" />
+            <span>Logout</span>
+          </button>
+        </div>
+      ) : (
+        <button type="button" className="nav-link sidebar-logout" onClick={handleLogout}>
+          <LogOut className="nav-icon" />
+          <span>Logout</span>
+        </button>
+      )}
     </aside>
   );
 };
