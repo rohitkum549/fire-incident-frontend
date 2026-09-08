@@ -15,7 +15,12 @@ export async function fetchApi<T>(endpoint: string, options?: RequestInit): Prom
   const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
   const url = `${baseUrl}${cleanEndpoint}`;
 
-  const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
+  const token =
+    typeof window !== "undefined"
+      ? window.localStorage.getItem("access_token")
+      : typeof globalThis !== "undefined" && (globalThis as Record<string, unknown>).localStorage
+        ? ((globalThis as Record<string, unknown>).localStorage as Storage).getItem("access_token")
+        : null;
 
   const headers: Record<string, string> = {
     "Content-Type": "application/json",

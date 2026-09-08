@@ -10,9 +10,20 @@ import type {
 const SESSION_KEY = "fire-system-session";
 const TOKEN_KEY = "access_token";
 
+const getLocalStorage = (): Storage | null => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    return window.localStorage;
+  }
+  if (typeof globalThis !== "undefined" && (globalThis as Record<string, unknown>).localStorage) {
+    return (globalThis as Record<string, unknown>).localStorage as Storage;
+  }
+  return null;
+};
+
 const readSession = (): AuthUser | null => {
   try {
-    const storedSession = window.localStorage.getItem(SESSION_KEY);
+    const storage = getLocalStorage();
+    const storedSession = storage ? storage.getItem(SESSION_KEY) : null;
     if (!storedSession) {
       return null;
     }
@@ -25,9 +36,12 @@ const readSession = (): AuthUser | null => {
 };
 
 const saveSession = (user: AuthUser, token?: string): void => {
-  window.localStorage.setItem(SESSION_KEY, JSON.stringify(user));
-  if (token) {
-    window.localStorage.setItem(TOKEN_KEY, token);
+  const storage = getLocalStorage();
+  if (storage) {
+    storage.setItem(SESSION_KEY, JSON.stringify(user));
+    if (token) {
+      storage.setItem(TOKEN_KEY, token);
+    }
   }
 };
 
@@ -37,7 +51,8 @@ export const authService = {
   },
 
   getToken(): string | null {
-    return window.localStorage.getItem(TOKEN_KEY);
+    const storage = getLocalStorage();
+    return storage ? storage.getItem(TOKEN_KEY) : null;
   },
 
   async login({ username, password }: LoginCredentials): Promise<AuthUser> {
@@ -153,8 +168,11 @@ export const authService = {
     } catch {
       // Ignore network errors during logout so local session always clears
     } finally {
-      window.localStorage.removeItem(SESSION_KEY);
-      window.localStorage.removeItem(TOKEN_KEY);
+      const storage = getLocalStorage();
+      if (storage) {
+        storage.removeItem(SESSION_KEY);
+        storage.removeItem(TOKEN_KEY);
+      }
     }
   },
 };
