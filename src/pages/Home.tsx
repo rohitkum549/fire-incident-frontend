@@ -77,18 +77,21 @@ export const Home: React.FC = () => {
 
       setMetrics(metricsData);
       setCategories(categoriesData);
-      if (categoriesData.length > 0) {
-        setComplaintCategory((prev) => prev || categoriesData[0].id);
+      const firstCat = categoriesData[0];
+      if (firstCat) {
+        setComplaintCategory((prev) => prev || firstCat.id);
       }
 
       setComplaints(complaintsData);
-      if (complaintsData.length > 0) {
-        setEscalateComplaintId((prev) => prev || complaintsData[0].id);
+      const firstCmp = complaintsData[0];
+      if (firstCmp) {
+        setEscalateComplaintId((prev) => prev || firstCmp.id);
       }
 
       setIncidents(incidentsData);
-      if (incidentsData.length > 0) {
-        setSelectedIncidentId((prev) => prev || incidentsData[0].id);
+      const firstInc = incidentsData[0];
+      if (firstInc) {
+        setSelectedIncidentId((prev) => prev || firstInc.id);
       }
 
       const currentActive = shiftsData.find((s) => s.status === "ACTIVE") || null;

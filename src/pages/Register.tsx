@@ -32,8 +32,9 @@ export const Register: React.FC = () => {
       .getStations()
       .then((list) => {
         setStations(list);
-        if (list.length > 0) {
-          setStationId((prev) => prev || list[0].id);
+        const firstStation = list[0];
+        if (firstStation) {
+          setStationId((prev) => prev || firstStation.id);
         }
       })
       .catch(() => {

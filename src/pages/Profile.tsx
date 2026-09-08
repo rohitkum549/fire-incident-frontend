@@ -6,12 +6,12 @@ export const Profile: React.FC = () => {
   const { user } = useAuth();
 
   const formattedRole = (roles?: string[]): string => {
-    if (!roles || roles.length === 0) return "Operator";
+    if (!roles || roles.length === 0 || !roles[0]) return "Operator";
     const role = roles[0];
     if (role === "ROLE_ADMIN" || role === "ADMIN") return "Fire Administrator";
     if (role === "ROLE_FIREFIGHTER" || role === "FIREFIGHTER") return "Field Firefighter";
     if (role === "ROLE_CITIZEN" || role === "CITIZEN") return "Public Citizen";
-    return role;
+    return role.replace(/^ROLE_/, "");
   };
 
   return (

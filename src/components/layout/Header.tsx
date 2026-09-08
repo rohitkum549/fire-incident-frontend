@@ -11,14 +11,16 @@ interface HeaderProps {
 const getInitials = (name?: string): string => {
   if (!name) return "U";
   const parts = name.trim().split(" ");
-  if (parts.length >= 2) {
-    return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+  const p0 = parts[0]?.[0] || "";
+  const p1 = parts[1]?.[0] || "";
+  if (p0 && p1) {
+    return `${p0}${p1}`.toUpperCase();
   }
   return name.slice(0, 2).toUpperCase();
 };
 
 const formatRole = (roles?: string[]): string => {
-  if (!roles || roles.length === 0) return "Operator";
+  if (!roles || roles.length === 0 || !roles[0]) return "Operator";
   const role = roles[0];
   if (role === "ROLE_ADMIN" || role === "ADMIN") return "Administrator";
   if (role === "ROLE_FIREFIGHTER" || role === "FIREFIGHTER") return "Firefighter";
